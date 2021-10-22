@@ -6,7 +6,7 @@
     android:layout_height="100dp">
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/imageField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -25,10 +25,9 @@ class MoviesAdapter(
     }
 
     override fun onBindViewHolder(holder: MoviesAdapter.MovieViewHolder, position: Int) {
-        with(holder){
-            with(moviesList[position]){
-
-            }
+        var curPic = moviesList[position]
+        holder.itemView.apply {
+            holder.binding.imageField = curPic.picture
         }
     }
 
