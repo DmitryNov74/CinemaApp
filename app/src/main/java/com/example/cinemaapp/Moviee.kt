@@ -1,6 +1,6 @@
 package com.example.cinemaapp
 
-class Moviee {
-    lateinit var picture :String
+class Moviee (
+     var pictureUrl : String
 
-}
+)

@@ -7,31 +7,31 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinemaapp.databinding.ItemMovieBinding
+import com.squareup.picasso.Picasso
 
 
 class MoviesAdapter(
-    private val moviesList:MutableList<Moviee>
+    private var moviesList:List<Moviee>
 ) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
-    inner class MovieViewHolder(val binding: ItemMovieBinding):RecyclerView.ViewHolder(binding.root){
-
+    inner class MovieViewHolder( binding: ItemMovieBinding):RecyclerView.ViewHolder(binding.root){
+        var binding = binding
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesAdapter.MovieViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
 
         return MovieViewHolder(
             ItemMovieBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         )
     }
 
-    override fun onBindViewHolder(holder: MoviesAdapter.MovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         var curPic = moviesList[position]
-        holder.itemView.apply {
-            holder.binding.imageField = curPic.picture
-        }
+        Picasso.get().load("http://i.imgur.com/DvpvklR.png")
+            .placeholder(R.mipmap.ic_launcher).into(holder.binding.picPlace)
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return moviesList.size
     }
 }
