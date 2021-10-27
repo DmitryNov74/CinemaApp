@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cinemaapp.databinding.ActivityMainBinding
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
-    var url = "https://api.themoviedb.org/3/movie/550?api_key="
+    var url = "https://api.themoviedb.org/3/movie/upcoming?api_key="
     private lateinit var moviesAdapter:MoviesAdapter
     private lateinit var binding: ActivityMainBinding
     private lateinit var movieList :List<Moviee>
@@ -23,6 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.comingSoon.adapter = moviesAdapter
         binding.comingSoon.layoutManager = LinearLayoutManager(this)
+
+
     }
 
     private fun loadPics(){
