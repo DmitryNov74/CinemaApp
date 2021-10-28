@@ -13,7 +13,7 @@ interface MovieDbInterface {
     //https://api.themoviedb.org/3/
 
     @GET("/movie/popular")
-    fun getMovieDetails():Call<MovieDetails>
-        //@Query("api_key") apiKey :String = "",
-       // @Query("page") page:Int):Call<MovieDetails>
+    fun getMovieDetails(
+        @Query("api_key") apiKey: String = ""
+    ):Call<MovieDetails>
 }
