@@ -9,10 +9,10 @@ import com.squareup.picasso.Picasso
 
 
 class MoviesAdapter(
-    private var moviesList: MovieDetails
+    private var moviesList: List<Result>
 ) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
-    inner class MovieViewHolder( binding: ItemMovieBinding):RecyclerView.ViewHolder(binding.root){
+    inner class MovieViewHolder(binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
         var binding = binding
 
     }
@@ -20,7 +20,7 @@ class MoviesAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
 
         return MovieViewHolder(
-            ItemMovieBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+            ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 
