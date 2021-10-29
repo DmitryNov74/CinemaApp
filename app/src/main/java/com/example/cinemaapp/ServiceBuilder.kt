@@ -7,6 +7,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ServiceBuilder {
 
+    private const val BASE_URL = "https://api.themoviedb.org/3/"
+    const val IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500"
+
     private val logging = HttpLoggingInterceptor().apply {
         if (BuildConfig.DEBUG) {
             setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -18,7 +21,7 @@ object ServiceBuilder {
         .build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.themoviedb.org/3/")
+        .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()

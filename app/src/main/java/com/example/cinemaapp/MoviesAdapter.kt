@@ -3,7 +3,6 @@ package com.example.cinemaapp
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinemaapp.databinding.ItemMovieBinding
 import com.squareup.picasso.Picasso
@@ -12,15 +11,7 @@ import com.squareup.picasso.Picasso
 class MoviesAdapter(
     private var moviesList: List<Result>,
 
-) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
-
-
-     class MovieViewHolder(binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
-        var binding = binding
-        var imageViewer :ImageView = binding.picPlace
-
-
-    }
+    ) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
 
@@ -30,15 +21,21 @@ class MoviesAdapter(
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        var curPic = moviesList[position]
-
-
-        Picasso.get().load("https://api.themoviedb.org/3/")
-            .placeholder(R.mipmap.ic_launcher).into(holder.imageViewer)
+        val movie = moviesList[position]
+        holder.bindData(movie)
     }
 
     override fun getItemCount(): Int {
         return moviesList.size
     }
+
+    class MovieViewHolder(private val binding: ItemMovieBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bindData(movie: Result) {
+            Picasso.get().load(movie.getPosterUrl())
+                .placeholder(R.mipmap.ic_launcher).into(binding.picPlace)
+        }
+
+    }
 }
-//

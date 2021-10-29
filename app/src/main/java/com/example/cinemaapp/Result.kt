@@ -32,4 +32,10 @@ data class Result(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-)
+) {
+
+    fun getPosterUrl(): String {
+        return ServiceBuilder.IMAGE_BASE_URL + posterPath
+    }
+
+}
