@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // loadPics()
+
         loadMovies()
         moviesAdapter = MoviesAdapter(emptyList())
 
@@ -34,23 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    //private fun loadPics(){
-    //  movieList = listOf(
-    //    Moviee("qqq"),
-    //  Moviee("www"),
-    //Moviee("eee"),
-    //Moviee("ttt"),
-    //Moviee("uuu"),
-    //Moviee("eee"),
-    //Moviee("fff"),
-    //Moviee("mmm"),
-    //Moviee("nnn"),
-    // Moviee(",,,"),
-    //Moviee("zzz"),
-    //Moviee("ååå"),
 
-    //)
-    //}
 
     private fun loadMovies() {
 
