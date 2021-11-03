@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         val movieService = buildService(MovieDbInterface::class.java)
         val requestCall = movieService.getMovieDetails()
 
+
         requestCall.enqueue(object : Callback<MovieDetails> {
             override fun onResponse(call: Call<MovieDetails>, response: Response<MovieDetails>) {
 
@@ -49,8 +50,9 @@ class MainActivity : AppCompatActivity() {
 
                     binding.comingSoon.apply {
                         setHasFixedSize(true)
-                        layoutManager = GridLayoutManager(this@MainActivity, 2)
+                        layoutManager = GridLayoutManager(this@MainActivity, 1)
                         adapter = MoviesAdapter(movieDetails.results)
+                        Log.d("json","onGoing" + movieDetails.results );
                     }
                 } else {
                     Log.e("MainActivity", "Error fetching movies: ${response.errorBody().toString()}")

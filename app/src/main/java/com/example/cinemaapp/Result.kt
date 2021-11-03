@@ -38,4 +38,5 @@ data class Result(
         return ServiceBuilder.IMAGE_BASE_URL + posterPath
     }
 
+
 }

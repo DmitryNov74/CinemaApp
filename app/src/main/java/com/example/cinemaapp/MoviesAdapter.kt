@@ -9,7 +9,9 @@ import com.squareup.picasso.Picasso
 
 
 class MoviesAdapter(
+
     private var moviesList: List<Result>,
+   // private val genreList:List<Genre>
 
     ) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
@@ -21,8 +23,12 @@ class MoviesAdapter(
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+
         val movie = moviesList[position]
+       // val genre = genreList[position]
+
         holder.bindData(movie)
+
     }
 
     override fun getItemCount(): Int {
@@ -35,6 +41,9 @@ class MoviesAdapter(
         fun bindData(movie: Result) {
             Picasso.get().load(movie.getPosterUrl())
                 .placeholder(R.mipmap.ic_launcher).into(binding.picPlace)
+            binding.movieName.text = movie.originalTitle
+            binding.movieGenre.text
+            binding.movieRaiting.text = movie.voteAverage.toString()
         }
 
     }

@@ -13,7 +13,17 @@ interface MovieDbInterface {
     //https://api.themoviedb.org/3/
 
     @GET("movie/popular")
+
     fun getMovieDetails(
-        @Query("api_key") apiKey: String = "39c7fb0822b42e228245de1f7c8d5a48"
+        @Query("api_key") apiKey: String = "39c7fb0822b42e228245de1f7c8d5a48",
+       // @Query("genre")genre:Genre
+
     ):Call<MovieDetails>
+
+    @GET("genre/movie/list")
+
+    fun getGenresDetails(
+        @Query("name")genre:Genre
+    ):Call<GenresOfMovies>
+
 }
