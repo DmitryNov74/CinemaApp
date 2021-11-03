@@ -1,4 +1,4 @@
-package com.example.cinemaapp
+package com.example.cinemaapp.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -6,8 +6,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cinemaapp.ServiceBuilder.buildService
+import com.example.cinemaapp.data.network.MovieDbInterface
+import com.example.cinemaapp.data.network.ServiceBuilder.buildService
 import com.example.cinemaapp.databinding.ActivityMainBinding
+import com.example.cinemaapp.model.MovieDetails
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,12 +28,8 @@ class MainActivity : AppCompatActivity() {
         loadMovies()
         moviesAdapter = MoviesAdapter(emptyList())
 
-
-
         binding.comingSoon.adapter = moviesAdapter
         binding.comingSoon.layoutManager = LinearLayoutManager(this)
-
-
     }
 
 

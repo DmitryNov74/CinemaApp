@@ -1,9 +1,10 @@
-package com.example.cinemaapp
+package com.example.cinemaapp.model
 
 
+import com.example.cinemaapp.data.network.ServiceBuilder
 import com.google.gson.annotations.SerializedName
 
-data class Result(
+data class Movie(
     @SerializedName("adult")
     val adult: Boolean,
     @SerializedName("backdrop_path")

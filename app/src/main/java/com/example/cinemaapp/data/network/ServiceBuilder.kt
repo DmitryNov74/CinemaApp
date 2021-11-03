@@ -1,6 +1,6 @@
-package com.example.cinemaapp
+package com.example.cinemaapp.data.network
 
-import com.google.gson.GsonBuilder
+import com.example.cinemaapp.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -11,6 +11,7 @@ object ServiceBuilder {
     private const val BASE_URL = "https://api.themoviedb.org/3/"
     const val IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500"
     const val GENRE_URL = "https://api.themoviedb.org/3/genre/movie/list"
+    const val API_KEY = "39c7fb0822b42e228245de1f7c8d5a48"
 
 
     private val logging = HttpLoggingInterceptor().apply {

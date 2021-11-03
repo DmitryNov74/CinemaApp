@@ -1,10 +1,10 @@
-package com.example.cinemaapp
+package com.example.cinemaapp.data.network
 
+import com.example.cinemaapp.model.GenreResponse
+import com.example.cinemaapp.model.MovieDetails
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
-import java.util.*
 
 interface MovieDbInterface {
 
@@ -13,17 +13,13 @@ interface MovieDbInterface {
     //https://api.themoviedb.org/3/
 
     @GET("movie/popular")
-
     fun getMovieDetails(
-        @Query("api_key") apiKey: String = "39c7fb0822b42e228245de1f7c8d5a48",
-       // @Query("genre")genre:Genre
-
-    ):Call<MovieDetails>
+        @Query("api_key") apiKey: String = ServiceBuilder.API_KEY
+    ): Call<MovieDetails>
 
     @GET("genre/movie/list")
-
     fun getGenresDetails(
-        @Query("name")genre:Genre
-    ):Call<GenresOfMovies>
+        @Query("api_key") apiKey: String = ServiceBuilder.API_KEY
+    ): Call<GenreResponse>
 
 }
