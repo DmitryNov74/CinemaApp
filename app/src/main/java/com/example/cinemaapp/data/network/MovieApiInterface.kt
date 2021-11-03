@@ -6,7 +6,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface MovieDbInterface {
+interface MovieApiInterface {
 
     //https://api.themoviedb.org/3/movie/550?api_key=
     //https://api.themoviedb.org/3/movie/upcoming?api_key=
@@ -18,7 +18,7 @@ interface MovieDbInterface {
     ): Call<MovieDetails>
 
     @GET("genre/movie/list")
-    fun getGenresDetails(
+    fun getGenres(
         @Query("api_key") apiKey: String = ServiceBuilder.API_KEY
     ): Call<GenreResponse>
 
