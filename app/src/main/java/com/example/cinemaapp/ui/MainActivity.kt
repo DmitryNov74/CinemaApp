@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cinemaapp.data.MovieRepository
 import com.example.cinemaapp.databinding.ActivityMainBinding
@@ -67,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
                     binding.comingSoon.apply {
                         setHasFixedSize(true)
-                        layoutManager = LinearLayoutManager(this@MainActivity)
+                        layoutManager = GridLayoutManager(this@MainActivity,2)
                         adapter = MoviesAdapter(genres, movieDetails.results)
                         Log.d("json", "onGoing" + movieDetails.results);
                     }
